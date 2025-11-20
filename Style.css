@@ -1,0 +1,119 @@
+/* --- Reset & base --- */
+*{box-sizing:border-box}
+body {
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:#f4f4f4;
+  color:#111;
+  transition: background .3s,color .3s;
+}
+
+/* NAVBAR */
+.navbar {
+  background:#003b7a;
+  color:white;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-weight:700}
+
+/* WRAP layout */
+.wrap{
+  display:flex;
+  gap:18px;
+  padding:20px;
+  max-width:1100px;
+  margin:18px auto;
+}
+
+/* MAIN & SIDEBAR */
+.main-col{flex:1}
+.side-col{width:300px}
+
+/* HERO (featured headline) */
+.hero{
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("https://via.placeholder.com/1200x600") center/cover no-repeat;
+  border-radius:10px;
+  color:white;
+  padding:28px;
+  margin-bottom:16px;
+}
+.hero-overlay h1{margin:0 0 8px; font-size:26px}
+.hero-overlay p{opacity:.9}
+
+/* search */
+.controls { margin-bottom:12px }
+.controls input {
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+
+/* news list - card */
+.news-list .card {
+  display:block;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom:16px;
+  transition: transform .18s, box-shadow .18s;
+  cursor:pointer;
+}
+.news-list .card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .inner{padding:14px}
+.card h2{margin:0 0 8px;font-size:18px}
+.card .tgl{font-size:13px;color:#666}
+.card p{margin-top:10px;color:#333;line-height:1.6;}
+
+/* SIDEBAR CARDS */
+.side-card{padding:12px;margin-bottom:12px;background:white;border-radius:8px;box-shadow:0 6px 14px rgba(0,0,0,0.04)}
+.side-card h3{margin:0 0 10px;font-size:16px}
+.side-card ul{padding-left:14px;margin:0}
+.side-card ul li{margin-bottom:8px;cursor:pointer;color:#006bb3}
+
+/* DETAIL PAGE */
+.detail-wrap{display:flex;gap:18px;max-width:1100px;margin:18px auto;padding:0 20px}
+.detail-card{flex:1;background:white;padding:18px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.detail-card h1{margin:0 0 8px}
+.detail-img{width:100%;height:360px;object-fit:cover;border-radius:8px;margin:12px 0}
+.detail-content{white-space:pre-line;line-height:1.7;color:#222}
+.back-btn{text-decoration:none;color:#fff;background:#003b7a;padding:8px 12px;border-radius:8px;display:inline-block;margin-bottom:8px}
+
+/* SHARE BAR */
+.share-bar{display:flex;gap:8px;margin-top:12px}
+.share-btn{padding:8px 10px;border-radius:8px;border:none;background:#0b84ff;color:white;cursor:pointer}
+.share-btn.wa{background:#25D366}
+
+/* FOOTER */
+.footer{text-align:center;padding:18px;color:#666;}
+
+/* SMALL layout for detail aside */
+.side-col.small{width:260px}
+
+/* DARK MODE */
+body.dark{
+  background:#071021;color:#e6eef8;
+}
+body.dark .card, body.dark .side-card, body.dark .detail-card{
+  background:#0e1620;color:#dbe9ff;box-shadow:0 8px 24px rgba(0,0,0,0.6)
+}
+body.dark .navbar{background:#06102a}
+body.dark .back-btn{background:#2a4669}
+
+/* responsive */
+@media (max-width:900px){
+  .wrap{flex-direction:column;padding:12px}
+  .side-col{width:100%}
+  .detail-wrap{flex-direction:column;padding:0 12px}
+  .hero-overlay h1{font-size:20px}
+  .detail-img{height:220px}
+}
