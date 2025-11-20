@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KepriNews — Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">KepriNews</div>
+    <div class="nav-right">
+      <button class="toggle-btn" onclick="toggleDark()">🌓</button>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- LEFT: main content -->
+    <main class="main-col">
+      <section class="hero" id="hero">
+        <div class="hero-overlay">
+          <h1 id="headline-title">Memuat headline...</h1>
+          <p id="headline-date"></p>
+        </div>
+      </section>
+
+      <div class="controls">
+        <input id="searchInput" placeholder="Cari berita..." onkeyup="searchNews()"/>
+      </div>
+
+      <section id="news-list" class="news-list">
+        <p>Memuat berita...</p>
+      </section>
+    </main>
+
+    <!-- RIGHT: sidebar -->
+    <aside class="side-col">
+      <div class="card side-card">
+        <h3>Trending</h3>
+        <ul id="trendingList">
+          <li>Memuat...</li>
+        </ul>
+      </div>
+
+      <div class="card side-card">
+        <h3>Tentang</h3>
+        <p>KepriNews — Portal berita lokal & esport. Update cepat, terpercaya.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <small>&copy; 2025 KepriNews</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
