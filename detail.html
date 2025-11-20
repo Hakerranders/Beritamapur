@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detail Berita — KepriNews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">KepriNews</div>
+    <div class="nav-right">
+      <button class="toggle-btn" onclick="toggleDark()">🌓</button>
+    </div>
+  </nav>
+
+  <main class="detail-wrap">
+    <div class="detail-card">
+      <a class="back-btn" href="index.html">⬅ Kembali</a>
+      <h1 id="detail-title">Memuat...</h1>
+      <div class="meta">
+        <span id="detail-date"></span>
+      </div>
+      <img id="detail-img" class="detail-img" src="" alt="Gambar berita"/>
+      <div id="detail-content" class="detail-content">Memuat...</div>
+
+      <!-- SHARE BUTTONS -->
+      <div class="share-bar">
+        <button onclick="shareCurrent()" class="share-btn">Share (Device)</button>
+        <button onclick="shareWhatsApp()" class="share-btn wa">WhatsApp</button>
+        <button onclick="copyLink()" class="share-btn">Copy Link</button>
+      </div>
+    </div>
+
+    <aside class="side-col small">
+      <div class="card side-card">
+        <h4>Artikel Lain</h4>
+        <ul id="otherList">Memuat...</ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // ambil id dari query param dan tampilkan detail
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id") || 0;
+
+    fetch("data.json")
+      .then(r => r.json())
+      .then(data => {
+        const item = data[id];
+        if (!item) return document.getElementById('detail-content').innerText = "Berita tidak ditemukan.";
+        document.getElementById("detail-title").innerText = item.judul;
+        document.getElementById("detail-date").innerText = item.tanggal;
+        document.getElementById("detail-img").src = item.gambar || "";
+        document.getElementById("detail-content").innerText = item.isi;
+        // isi sidebar list
+        const other = data.map((d,i)=> `<li onclick="openDetail(${i})">${d.judul}</li>`).join("");
+        document.getElementById("otherList").innerHTML = other;
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>
